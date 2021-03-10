@@ -503,12 +503,12 @@ class EntailmentDataLoader(DataLoader):
 #####
 class DocumentSentimentDataset(Dataset):
     # Static constant variable
-    LABEL2INDEX = {'positive': 1, 'negative': 0}
-    INDEX2LABEL = {1: 'positive', 0: 'negative'}
+    LABEL2INDEX = {'negative': 0, 'positive': 1}
+    INDEX2LABEL = {0: 'negative', 1: 'positive'}
     NUM_LABELS = 2
     
     def load_dataset(self, path): 
-        df = pd.read_csv(path, sep='\t', header=None)
+        df = pd.read_csv(path)
         df.columns = ['text','sentiment']
         df['sentiment'] = df['sentiment'].apply(lambda lab: self.LABEL2INDEX[lab])
         return df
