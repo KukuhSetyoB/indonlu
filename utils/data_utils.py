@@ -16,7 +16,7 @@ class AspectExtractionDataset(Dataset):
     NUM_LABELS = 5
     
     def load_dataset(self, path):
-        # Read file
+        # Read filea
         data = open(path,'r').readlines()
 
         # Prepare buffer
